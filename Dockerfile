@@ -1,5 +1,5 @@
-# Use official Node.js image for Windows
-FROM node:20.12.2-windowsservercore-ltsc2022
+# ✅ Use valid Windows container image for Node.js 20
+FROM node:20-windowsservercore-ltsc2022
 
 # Set working directory
 WORKDIR /app
@@ -8,11 +8,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Copy app files
+# Copy source code
 COPY . .
 
-# Expose the app port (adjust if needed)
+# Expose application port (e.g., 3000 for Express)
 EXPOSE 3000
 
-# Start the app (adjust app.js if needed)
+# Start your app
 CMD ["node", "app.js"]
